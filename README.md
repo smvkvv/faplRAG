@@ -51,6 +51,7 @@ Create .env file with API key to GigaChat:
 
     LLM_API_KEY = <gigachat_API_key>
 
+
 5. Run the project
 
     `make run`
