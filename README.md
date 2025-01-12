@@ -27,8 +27,8 @@ Repository structure
 
 1. Clone the repository:
 
-    git clone <repository_url>
-    cd <repository_directory>
+    `git clone <repository_url>`
+    `cd <repository_directory>`
 
 2. Configure your embedder:
 
@@ -51,9 +51,10 @@ Create .env file with API key to GigaChat:
 
     LLM_API_KEY = <gigachat_API_key>
 
-5. Run the project.
 
-    make run
+5. Run the project
+
+    `make run`
 
 Interface will be available at http://localhost:8501
 
