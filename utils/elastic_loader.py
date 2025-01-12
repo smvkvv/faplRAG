@@ -43,7 +43,7 @@ def generate_document_source(post: Post) -> Dict[str, str]:
                 "uid": post.uid,
                 "title": post.title,
                 "text_content": post.text_content,
-                "tags": post.tags,
+                "tags": [tag.lower() for tag in post.tags],
                 "n_visits": post.n_visits,
                 "author": post.author,
                 "dt": post.dt
@@ -58,11 +58,11 @@ def update_search(posts: list[Post], os_client: OpenSearch, batch_size: int = 50
         bucket_data = []
         for document in chunk:
             cur = {
-                "_index": "chunks",
+                "_index": "posts",
                 "_source": document,
             }
             if 'uid' in document:
-                cur['_source']['id'] = document['uid']
+                cur['_id'] = document['uid']
             bucket_data.append(cur)
         try:
             inserted, errors = bulk(os_client, bucket_data, max_retries=4, raise_on_error=False)

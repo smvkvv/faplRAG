@@ -21,3 +21,23 @@ class EmbedderSettings(BaseModel):
     dimension: int
     prefix_query: str
     prefix_document: str
+
+
+class QuestionCreate(BaseModel):
+    question: str
+
+
+class Context(BaseModel):
+    uid: int
+    text: str
+    title: str
+    tags: list[str]
+    n_visits: int
+    dt: datetime
+    href: str
+    source: str
+
+
+class QuestionResponse(BaseModel):
+    response: str
+    contexts: list[Context] | str

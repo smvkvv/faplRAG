@@ -15,4 +15,8 @@ create-user:
 start:
 	docker-compose up
 
+clean-volume:
+	docker volume rm faplrag_postgres_data
+
+
 setup: init-db create-user start

@@ -8,8 +8,6 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from transformers import AutoModel, AutoTokenizer, XLMRobertaModel, XLMRobertaTokenizer
 
-from schemas import EmbedderSettings
-
 
 class IEmbedder(abc.ABC):
     def __init__(self):
@@ -24,7 +22,7 @@ class IEmbedder(abc.ABC):
 
 
 class Embedder(IEmbedder):
-    def __init__(self, settings: EmbedderSettings):
+    def __init__(self, settings):
         super().__init__()
         self._settings = settings
         self.batch_size = self._settings.batch_size
