@@ -61,3 +61,5 @@ Interface will be available at http://localhost:8501
 ## Interface
 
 The interface is a chat with an LLM assistant, containing the history of the dialogue and a field for entering a question.
+
+![image](img/example.png)
