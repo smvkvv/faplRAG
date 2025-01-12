@@ -25,12 +25,13 @@ Repository structure
 
 ## How to run the project
 
-1. Clone the repository:
+1. Clone the repository
 
     `git clone <repository_url>`
+   
     `cd <repository_directory>`
 
-2. Configure your embedder:
+3. Configure your embedder:
 
 At interface/config.yaml set values for parameters for embedding model.
 
@@ -41,8 +42,8 @@ File interface/config.yaml lets you change the experimental parameters.
 
 For project preparation we must load some data via airflow
 
-    make setup
-
+    make setup  
+    
 After building Airflow containers, one must trigger DAG "load_data_to_db"
 
 4. Update .env
