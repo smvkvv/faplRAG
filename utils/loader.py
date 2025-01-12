@@ -5,7 +5,7 @@ from database import SessionLocal
 from models import Post
 
 from embedder import Embedder
-from elastic import create_index, update_search
+from elastic_loader import create_index, update_search
 
 logger = logging.getLogger(__name__)
 

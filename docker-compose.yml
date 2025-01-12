@@ -72,6 +72,31 @@ services:
     volumes:
       - os_data:/usr/share/opensearch/data
 
+  interface:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn interface.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - ./interface:/app/interface
+
+  streamlit:
+    build: .
+    command: >
+      streamlit run streamlit/app.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    depends_on:
+      - interface
+
 volumes:
   postgres_data:
   airflow_logs:
